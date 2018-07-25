@@ -1,6 +1,14 @@
 # awsm-front-end
 
 <!--     "precommit": "node tools upstream && npm run lint && npm run lint:styles && npm test",  -->
+### 
+
+
+### How to Run Dev Environment
+- Clone repo to working directory: ```git clone https://github.com/TeamAwsom/awsom-front-end.git```
+- Install Dependencies: ```npm install```
+- Start Dev Server: ```npm run start```
+
 
 ### Provides
 - react ^16.x

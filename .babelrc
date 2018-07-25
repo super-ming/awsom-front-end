@@ -12,7 +12,7 @@
     }
     ]
   ],
-  "compact": "true",
+  "compact": true,
   "env": {
     "production": {
       "plugins": [
