@@ -13,6 +13,7 @@ import config from 'config';
 import { showAlert } from 'actions';
 
 import Home from 'routes/Home';
+import FreeTrial from 'routes/FreeTrial';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
@@ -49,16 +50,17 @@ export class App extends React.Component {
         >
           <Helmet
             defer={false}
-            htmlAttributes={{ lang: 'pt-br' }}
+            htmlAttributes={{ lang: 'en-us' }}
             encodeSpecialCharacters={true}
             defaultTitle={config.title}
             titleTemplate={`%s | ${config.name}`}
-            titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
+            titleAttributes={{ itemprop: 'name', lang: 'en-us' }}
           />
           {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
           <main className="app__main">
             <Switch>
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/" exact component={Home} />
+              <RoutePublic isAuthenticated={user.isAuthenticated} path="/free-trial" exact component={FreeTrial} />
               <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
               <Route component={NotFound} />
             </Switch>

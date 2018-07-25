@@ -4,20 +4,23 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 
 import config from 'config';
-
 import Logo from 'components/Logo';
-import { login } from 'actions/index';
+import { login, push } from 'actions/index';
 
 export class Home extends React.PureComponent {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
   };
+  handleClickNavigation = e => {
+    e.preventDefault();
+    this.props.dispatch(push('/free-trial'));
+  }
 
   handleClickLogin = (e) => {
     e.preventDefault();
-
-    this.props.dispatch(login());
+    const { id } = e.target;
+    (id == 'freeTrial') ? console.log(id) : this.props.dispatch(login());
   };
 
   render() {
@@ -40,6 +43,16 @@ export class Home extends React.PureComponent {
             >
               <i className="i-sign-in" />
               <span>Start</span>
+            </a>
+            <a
+              href="#free-trial"
+              onClick={this.handleClickNavigation}
+              className={cx('btn btn-lg btn-primary btn-icon', {
+                'btn-loading': user.status === 'running',
+              })}
+            >
+              <i className="i-sign-in" />
+              <span id='freeTrial' >Free Trial</span>
             </a>
           </div>
         </div>
