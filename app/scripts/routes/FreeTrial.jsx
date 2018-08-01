@@ -5,7 +5,7 @@ export default class FreeTrial extends React.Component {
     return (
       <Fragment >
         <p> FreeTrial </p>
-      </Fragment>    
+      </Fragment>
     );
   }
 }
