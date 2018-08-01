@@ -16,6 +16,10 @@ import Home from 'routes/Home';
 import FreeTrial from 'routes/FreeTrial';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
+import Confirmation from 'routes/Confirmation';
+import Match from 'routes/Match';
+import NoMatch from 'routes/NoMatch';
+import SecondaryForm from 'routes/SecondaryForm';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -61,6 +65,10 @@ export class App extends React.Component {
             <Switch>
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/" exact component={Home} />
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/free-trial" exact component={FreeTrial} />
+              <RoutePublic isAuthenticated={user.isAuthenticated} path="/confirmation" exact component={Confirmation} />
+              <RoutePublic isAuthenticated={user.isAuthenticated} path="/match" exact component={Match} />
+              <RoutePublic isAuthenticated={user.isAuthenticated} path="/no-match" exact component={NoMatch} />
+              <RoutePublic isAuthenticated={user.isAuthenticated} path="/secondary-form" exact component={SecondaryForm} />
               <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
               <Route component={NotFound} />
             </Switch>
