@@ -93,6 +93,15 @@ export class Home extends React.PureComponent {
               <i className="i-sign-in" />
               <span id="freeTrial" >Secondary Form</span>
             </a>
+            <a
+              onClick={() => this.props.dispatch(push('/new-home'))}
+              className={cx('btn btn-lg btn-primary btn-icon', {
+                'btn-loading': user.status === 'running',
+              })}
+            >
+              <i className="i-sign-in" />
+              <span id="freeTrial" >New Home</span>
+            </a>
         
           </div>
         </div>

@@ -20,6 +20,7 @@ import Confirmation from 'routes/Confirmation';
 import Match from 'routes/Match';
 import NoMatch from 'routes/NoMatch';
 import SecondaryForm from 'routes/SecondaryForm';
+import NewHome from 'routes/NewHome';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -69,6 +70,7 @@ export class App extends React.Component {
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/match" exact component={Match} />
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/no-match" exact component={NoMatch} />
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/secondary-form" exact component={SecondaryForm} />
+              <RoutePublic isAuthenticated={user.isAuthenticated} path="/new-home" component={NewHome} />
               <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
               <Route component={NotFound} />
             </Switch>
