@@ -1,19 +1,10 @@
 .app__footer {
-  //height: 156px;
-  // line-height: 125px;
-  // background-color: #1F1F1F;
-  // color: #FFFFFF;
-  // text-align: center;
 
   .app__container {
     padding-bottom: $grid-gutter-width / 2;
     padding-top: $grid-gutter-width / 2;
   }
 
-  .app__tab {
-    display:inline-block; 
-    margin-left: 20px; 
-  }
 
   &__github {
     display: flex;
