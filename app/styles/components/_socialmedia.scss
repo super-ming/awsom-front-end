@@ -1,0 +1,28 @@
+.app__socialmedia {
+    height: 108px;
+    line-height: 100px;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+
+    .app__tab {
+        display:inline-block; 
+        margin-left: 8px; 
+      }
+
+    .fa-stack {
+        font-size: 1.15em;
+    }
+
+    a {
+        color: #ffffff;
+    }
+
+    .fab.fa-facebook-f,
+    .fab.fa-yelp,
+    .fab.fa-instagram,
+    .fab.fa-linkedin-in {
+        color: #333333;
+    }
+
+  }
