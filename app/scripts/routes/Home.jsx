@@ -15,9 +15,9 @@ export class Home extends React.PureComponent {
   handleClickNavigation = e => {
     e.preventDefault();
     this.props.dispatch(push('/free-trial'));
-  }
+  };
 
-  handleClickLogin = (e) => {
+  handleClickLogin = e => {
     e.preventDefault();
     this.props.dispatch(login());
   };
@@ -51,7 +51,7 @@ export class Home extends React.PureComponent {
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Free Trial</span>
+              <span id="freeTrial">Free Trial</span>
             </a>
             <a
               href="#free-trial"
@@ -61,7 +61,7 @@ export class Home extends React.PureComponent {
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Confirmation</span>
+              <span id="freeTrial">Confirmation</span>
             </a>
             <a
               href="#free-trial"
@@ -71,7 +71,7 @@ export class Home extends React.PureComponent {
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Match</span>
+              <span id="freeTrial">Match</span>
             </a>
             <a
               href="#free-trial"
@@ -81,7 +81,7 @@ export class Home extends React.PureComponent {
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >NoMatch</span>
+              <span id="freeTrial">NoMatch</span>
             </a>
             <a
               href="#free-trial"
@@ -91,9 +91,8 @@ export class Home extends React.PureComponent {
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Secondary Form</span>
+              <span id="freeTrial">Secondary Form</span>
             </a>
-        
           </div>
         </div>
       </div>
