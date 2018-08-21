@@ -4,7 +4,7 @@ import Logo from 'components/Logo';
 const Header = () => (
   <header className="app__header">
     <div className="app__container">
-      <a href="#">
+      <a href="/">
         <Logo />
       </a>
       <div className="app__header__menu">
