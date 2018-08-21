@@ -1,0 +1,18 @@
+.app__matchfound {
+  padding-top: 100px;
+  text-align: center;
+
+  .app__matchdetails {
+    padding-bottom: 20px;
+  }
+}
+
+.app__matchbuttons {
+  margin-bottom: 50px;
+  text-align: center;
+
+  .btn-primary {
+    background-color: black;
+    border-color: white;
+  }
+}
