@@ -1,13 +1,10 @@
 .app__logo {
-  display: inline-block;
+  .app_container {
+    width: 150px;
 
-  .isvg {
-    display: block;
-    line-height: 0;
-
-    svg {
+    img {
+      width: 100%;
       height: auto;
-      max-height: 100%;
     }
   }
 }

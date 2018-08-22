@@ -15,9 +15,9 @@ export class Home extends React.PureComponent {
   handleClickNavigation = e => {
     e.preventDefault();
     this.props.dispatch(push('/free-trial'));
-  }
+  };
 
-  handleClickLogin = (e) => {
+  handleClickLogin = e => {
     e.preventDefault();
     this.props.dispatch(login());
   };
@@ -33,7 +33,7 @@ export class Home extends React.PureComponent {
               <Logo />
             </div>
             <h1>{config.description}</h1>
-            <a
+            {/* <a
               href="#login"
               onClick={this.handleClickLogin}
               className={cx('btn btn-lg btn-primary btn-icon', {
@@ -42,58 +42,57 @@ export class Home extends React.PureComponent {
             >
               <i className="i-sign-in" />
               <span>Start</span>
-            </a>
+            </a> */}
             <a
-              href="#free-trial"
+              // href="#free-trial"
               onClick={() => this.props.dispatch(push('/free-trial'))}
               className={cx('btn btn-lg btn-primary btn-icon', {
                 'btn-loading': user.status === 'running',
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Free Trial</span>
+              <span id="freeTrial">Free Trial</span>
             </a>
             <a
-              href="#free-trial"
+              // href="#free-trial"
               onClick={() => this.props.dispatch(push('/confirmation'))}
               className={cx('btn btn-lg btn-primary btn-icon', {
                 'btn-loading': user.status === 'running',
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Confirmation</span>
+              <span id="freeTrial">Confirmation</span>
             </a>
             <a
-              href="#free-trial"
+              // href="#free-trial"
               onClick={() => this.props.dispatch(push('/match'))}
               className={cx('btn btn-lg btn-primary btn-icon', {
                 'btn-loading': user.status === 'running',
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Match</span>
+              <span id="freeTrial">Match</span>
             </a>
             <a
-              href="#free-trial"
+              // href="#free-trial"
               onClick={() => this.props.dispatch(push('/no-match'))}
               className={cx('btn btn-lg btn-primary btn-icon', {
                 'btn-loading': user.status === 'running',
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >NoMatch</span>
+              <span id="freeTrial">NoMatch</span>
             </a>
             <a
-              href="#free-trial"
+              // href="#free-trial"
               onClick={() => this.props.dispatch(push('/secondary-form'))}
               className={cx('btn btn-lg btn-primary btn-icon', {
                 'btn-loading': user.status === 'running',
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >Secondary Form</span>
+              <span id="freeTrial">Secondary Form</span>
             </a>
-        
           </div>
         </div>
       </div>

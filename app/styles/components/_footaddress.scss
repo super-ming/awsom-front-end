@@ -1,0 +1,17 @@
+.app__footaddress {
+    height: 156px;
+    //line-height: 156px;
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    text-align: center;
+
+    .app__container {
+      padding-top: 70px;
+    }
+  
+    .app__tab {
+      display:inline-block; 
+      margin-left: 20px; 
+    }
+  
+}
