@@ -1,37 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import { logOut } from 'actions';
 import Logo from 'components/Logo';
 
-export default class Header extends React.PureComponent {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-  };
+const Header = () => (
+  <header className="app__header">
+    <div className="app__container">
+      <a href="/">
+        <Logo />
+      </a>
+      <div className="app__header__menu">
+        <ul className="list-unstyled">
+          <li className="app__header_freebutton">
+            <button
+              type="button"
+              className="btn btn-primary"
+              href="#free-trial"
+            >
+              FREE TRIAL
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+);
 
-  handleClickLogout = e => {
-    e.preventDefault();
-    const { dispatch } = this.props;
-
-    dispatch(logOut());
-  };
-
-  render() {
-    return (
-      <header className="app__header">
-        <div className="app__container">
-          <Logo />
-          <div className="app__header__menu">
-            <ul className="list-unstyled">
-              <li>
-                <a href="#logout" className="app__logout" onClick={this.handleClickLogout}>
-                  <span>logout</span><i className="i-sign-out" />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </header>
-    );
-  }
-}
+export default Header;
