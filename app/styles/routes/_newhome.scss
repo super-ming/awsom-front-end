@@ -1,0 +1,147 @@
+.body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  background-image: url('https://images.pexels.com/photos/96380/pexels-photo-96380.jpeg?cs=srgb&dl=bass-guitar-chord-close-up-96380.jpg&fm=jpg');
+  background-size: cover;
+  width: 100%;
+  height: 25vw;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  margin: 1.5% 0 0 1.5%;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 1.5%;
+  width: 60%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1em;
+}
+
+.nav-link {
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+}
+
+#free-trial {
+  border: solid;
+  border-radius: 50px;
+  font-weight: 900;
+}
+
+.main-wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+}
+
+.intro {
+  width: 100%;
+  padding: 5.5% 3% 0 4.5%;
+  margin-bottom: 5%;
+  color: #93979e;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.intro > h1 {
+  color: #3e3e3e;
+}
+
+.cards {
+  max-height: 5%;
+  margin: 1em;
+}
+
+img {
+  height: 200px;
+}
+
+.wrapper {
+  margin: 0 0 2em 0;
+}
+
+.footer {
+  width: 100%;
+  height: 8em;
+  background-color: #363738;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.social-media {
+  padding: 20px;
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+}
+
+.social-icon {
+  margin-left: 20px;
+  color: white;
+}
+
+.social-icon:first-child{
+  margin-left: 0;
+}
+
+.fab:hover {
+  opacity: 0.7;
+}
+
+.site-info {
+  display: flex;
+  justify-content: center;
+  padding-right: 10px;
+}
+
+.site-address {
+  margin-right: 15px;
+}
+
+.site-phone {
+  margin-right: 15px;
+}
+
+.site-email {
+  color: white;
+}
+
+.nav-down {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.nav-up {
+  opacity: 0;
+  transition: opacity .5s ease-out;
+}
