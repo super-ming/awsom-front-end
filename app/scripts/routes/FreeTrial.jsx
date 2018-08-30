@@ -6,14 +6,37 @@ export default class FreeTrial extends React.Component {
     super(props);
     this.state = {
       inputvalue: '',
+      instrument: '',
+      style: '',
+      experience: '',
+      haveInstrument: false,
+      address1: '',
+      address2: '',
+      city: '',
+      state: '',
+      zip: '',
+      days: {
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false,
+        sunday: false
+      },
+      allergies: '',
+      specialNeeds: ''
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
+    console.log("event",event.target);
+    const {id, value}=event.target
     this.setState({
-      inputvalue: event.target.value,
+      [id]: value,
     });
+    console.log([id]);
   }
   render() {
     return (
@@ -72,36 +95,41 @@ export default class FreeTrial extends React.Component {
                 <div>Address: *</div>
                 <input
                   type="text"
+                  id="address1"
                   className="app__form_input"
-                  value={this.state.inputvalue}
+                  value={this.state.address1}
                   onChange={this.handleChange}
                 />
                 <div className="app__form_addresssub">Address 1</div>
                 <input
                   type="text"
+                  id="address2"
                   className="app__form_input"
-                  value={this.state.inputvalue}
+                  value={this.state.address2}
                   onChange={this.handleChange}
                 />
                 <div className="app__form_addresssub">Address 2</div>
                 <input
                   type="text"
+                  id="city"
                   className="app__form_input"
-                  value={this.state.inputvalue}
+                  value={this.state.city}
                   onChange={this.handleChange}
                 />
                 <div className="app__form_addresssub">City</div>
                 <input
                   type="text"
+                  id="state"
                   className="app__form_input"
-                  value={this.state.inputvalue}
+                  value={this.state.state}
                   onChange={this.handleChange}
                 />
                 <div className="app__form_addresssub">State</div>
                 <input
                   type="text"
+                  id="zip"
                   className="app__form_input"
-                  value={this.state.inputvalue}
+                  value={this.state.zip}
                   onChange={this.handleChange}
                 />
                 <div className="app__form_addresssub">Zip</div>
@@ -110,37 +138,37 @@ export default class FreeTrial extends React.Component {
                 <div>What are the best days and times for lessons? *</div>
                 <ul className="list-unstyled">
                   <li>
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" id="monday" className="btn btn-outline-secondary">
                       Monday
                     </button>
                   </li>
                   <li>
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" id="tuesday" className="btn btn-outline-secondary">
                       Tuesday
                     </button>
                   </li>
                   <li>
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" id="wednesday" className="btn btn-outline-secondary">
                       Wednesday
                     </button>
                   </li>
                   <li>
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" id="thursday" className="btn btn-outline-secondary">
                       Thursday
                     </button>
                   </li>
                   <li>
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" id="friday" className="btn btn-outline-secondary">
                       Friday
                     </button>
                   </li>
                   <li>
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" id="saturday" className="btn btn-outline-secondary">
                       Saturday
                     </button>
                   </li>
                   <li>
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" id="sunday" className="btn btn-outline-secondary">
                       Sunday
                     </button>
                   </li>
@@ -150,8 +178,9 @@ export default class FreeTrial extends React.Component {
                 <div>Allergies:</div>
                 <input
                   className="app__form_input"
+                  id="allergies"
                   type="text"
-                  value={this.state.inputvalue}
+                  value={this.state.allergies}
                   onChange={this.handleChange}
                 />
               </div>
@@ -159,8 +188,9 @@ export default class FreeTrial extends React.Component {
                 <div>Special Needs:</div>
                 <input
                   className="app__form_input"
+                  id="needs"
                   type="text"
-                  value={this.state.inputvalue}
+                  value={this.state.needs}
                   onChange={this.handleChange}
                 />
               </div>
