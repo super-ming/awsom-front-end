@@ -31,12 +31,10 @@ export default class FreeTrial extends React.Component {
   }
 
   handleChange(event) {
-    console.log("event",event.target);
-    const {id, value}=event.target
+    const {id, value} = event.target
     this.setState({
       [id]: value,
     });
-    console.log([id]);
   }
   render() {
     return (
