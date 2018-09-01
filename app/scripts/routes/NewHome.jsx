@@ -8,7 +8,6 @@ export default class NewHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       ticker: false,
       opacity: false};
     this.handleScroll = this.handleScroll.bind(this);
