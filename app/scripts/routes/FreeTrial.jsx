@@ -1,20 +1,20 @@
-import React, { Fragment } from 'react';
-import Header from '../components/Header';
+import React, { Fragment } from "react";
+import Header from "../components/Header";
 
 export default class FreeTrial extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputvalue: '',
-      instrument: '',
-      style: '',
-      experience: '',
+      inputvalue: "",
+      instrument: "",
+      style: "",
+      experience: "",
       haveInstrument: false,
-      address1: '',
-      address2: '',
-      city: '',
-      state: '',
-      zip: '',
+      address1: "",
+      address2: "",
+      city: "",
+      state: "",
+      zip: "",
       days: {
         monday: false,
         tuesday: false,
@@ -24,16 +24,16 @@ export default class FreeTrial extends React.Component {
         saturday: false,
         sunday: false
       },
-      allergies: '',
-      specialNeeds: ''
+      allergies: "",
+      specialNeeds: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    const {id, value} = event.target
+    const { id, value } = event.target;
     this.setState({
-      [id]: value,
+      [id]: value
     });
   }
   render() {
@@ -57,10 +57,10 @@ export default class FreeTrial extends React.Component {
               <div className="app__form_item">
                 <div>What instrument are you interested in learning? *</div>
                 <select className="app__form_dropdownbox">
-                  <option value="volvo">Piano</option>
-                  <option value="saab">Guitar</option>
-                  <option value="mercedes">Didgeridoo</option>
-                  <option value="audi">Turntables</option>
+                  <option value="piano">Piano</option>
+                  <option value="guitar">Guitar</option>
+                  <option value="didgeridoo">Didgeridoo</option>
+                  <option value="turntables">Turntables</option>
                 </select>
               </div>
               <div className="app__form_item">
@@ -68,25 +68,25 @@ export default class FreeTrial extends React.Component {
                   Which musical style are you most interested in learning? *
                 </div>
                 <select className="app__form_dropdownbox">
-                  <option value="volvo">Classical</option>
-                  <option value="saab">Jazz</option>
-                  <option value="mercedes">Rock</option>
-                  <option value="audi">Opera</option>
+                  <option value="classical">Classical</option>
+                  <option value="jazz">Jazz</option>
+                  <option value="rock">Rock</option>
+                  <option value="opera">Opera</option>
                 </select>
               </div>
               <div className="app__form_item">
                 <div>Previous musical experience: *</div>
                 <select className="app__form_dropdownbox">
-                  <option value="volvo">Beginner: 0-2 years</option>
-                  <option value="saab">Intermediate: 3-4 years</option>
-                  <option value="mercedes">Advanced: 5+ years</option>
+                  <option value="beginner">Beginner: 0-2 years</option>
+                  <option value="intermediate">Intermediate: 3-4 years</option>
+                  <option value="advanced">Advanced: 5+ years</option>
                 </select>
               </div>
               <div className="app__form_item">
                 <div>Do you have an instrument already? *</div>
                 <select className="app__form_dropdownbox">
-                  <option value="volvo">No</option>
-                  <option value="saab">Yes</option>
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
                 </select>
               </div>
               <div className="app__form_item">
@@ -136,37 +136,65 @@ export default class FreeTrial extends React.Component {
                 <div>What are the best days and times for lessons? *</div>
                 <ul className="list-unstyled">
                   <li>
-                    <button type="button" id="monday" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      id="monday"
+                      className="btn btn-outline-secondary"
+                    >
                       Monday
                     </button>
                   </li>
                   <li>
-                    <button type="button" id="tuesday" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      id="tuesday"
+                      className="btn btn-outline-secondary"
+                    >
                       Tuesday
                     </button>
                   </li>
                   <li>
-                    <button type="button" id="wednesday" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      id="wednesday"
+                      className="btn btn-outline-secondary"
+                    >
                       Wednesday
                     </button>
                   </li>
                   <li>
-                    <button type="button" id="thursday" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      id="thursday"
+                      className="btn btn-outline-secondary"
+                    >
                       Thursday
                     </button>
                   </li>
                   <li>
-                    <button type="button" id="friday" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      id="friday"
+                      className="btn btn-outline-secondary"
+                    >
                       Friday
                     </button>
                   </li>
                   <li>
-                    <button type="button" id="saturday" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      id="saturday"
+                      className="btn btn-outline-secondary"
+                    >
                       Saturday
                     </button>
                   </li>
                   <li>
-                    <button type="button" id="sunday" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      id="sunday"
+                      className="btn btn-outline-secondary"
+                    >
                       Sunday
                     </button>
                   </li>
