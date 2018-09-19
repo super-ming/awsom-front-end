@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Header from '../components/Header';
 
 export default class SecondaryForm extends React.Component {
   constructor(props) {
@@ -18,7 +17,6 @@ export default class SecondaryForm extends React.Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <div className="app__container">
           <div className="app__freetrial_description">
             <h1>We just need a few more details</h1>

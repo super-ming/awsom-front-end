@@ -20,7 +20,7 @@ import Confirmation from 'routes/Confirmation';
 import Match from 'routes/Match';
 import NoMatch from 'routes/NoMatch';
 import SecondaryForm from 'routes/SecondaryForm';
-import NewHome from 'routes/NewHome';
+import OldHome from 'routes/OldHome';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -61,7 +61,7 @@ export class App extends React.Component {
             titleTemplate={`%s | ${config.name}`}
             titleAttributes={{ itemprop: 'name', lang: 'en-us' }}
           />
-          {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
+          <Header dispatch={dispatch} user={user} />
           <main className="app__main">
             <Switch>
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/" exact component={Home} />
@@ -70,7 +70,7 @@ export class App extends React.Component {
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/match" exact component={Match} />
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/no-match" exact component={NoMatch} />
               <RoutePublic isAuthenticated={user.isAuthenticated} path="/secondary-form" exact component={SecondaryForm} />
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/new-home" component={NewHome} />
+              <RoutePublic isAuthenticated={user.isAuthenticated} path="/old-home" component={OldHome} />
               <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
               <Route component={NotFound} />
             </Switch>

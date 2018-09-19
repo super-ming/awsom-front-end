@@ -1,7 +1,11 @@
 import React from 'react';
 import Logo from 'components/Logo';
+import { push } from 'actions/index';
 
-const Header = () => (
+console.log(this)
+class Header extends React.Component {
+  render() {
+  return (
   <header className="app__header">
     <div className="app__container">
       <a href="/">
@@ -13,7 +17,7 @@ const Header = () => (
             <button
               type="button"
               className="btn btn-primary"
-              href="#free-trial"
+              onClick={() => this.props.dispatch(push('/free-trial'))}
             >
               FREE TRIAL
             </button>
@@ -22,6 +26,9 @@ const Header = () => (
       </div>
     </div>
   </header>
-);
+)
+  }
+}
 
 export default Header;
+
