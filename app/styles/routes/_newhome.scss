@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'Lato', sans-serif;
-  src: url('https://fonts.googleapis.com/css?family=Lato');
+  font-family: "Lato", sans-serif;
+  src: url("https://fonts.googleapis.com/css?family=Lato");
 }
 
-.main-wrapper{
+.main-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -23,6 +23,7 @@
 
 .intro > h1 {
   color: #3e3e3e;
+  text-align: center;
 }
 
 .cards {
@@ -39,7 +40,7 @@ img {
 .image-caption-wrapper {
   position: absolute;
   top: 170px;
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 2.5em;
   opacity: 50%;
@@ -57,5 +58,5 @@ img {
 }
 
 #choose-adv > h1 {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
