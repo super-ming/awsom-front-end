@@ -100,9 +100,8 @@ export class Home extends React.PureComponent {
               })}
             >
               <i className="i-sign-in" />
-              <span id="freeTrial" >New Home</span>
+              <span id="freeTrial">New Home</span>
             </a>
-        
           </div>
         </div>
       </div>
