@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Header from "../components/Header";
 
 export default class FreeTrial extends React.Component {
   constructor(props) {
@@ -39,7 +38,6 @@ export default class FreeTrial extends React.Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <div className="app__container">
           <div className="app__freetrial_description">
             <h1>Let's find a great teacher in your area!</h1>

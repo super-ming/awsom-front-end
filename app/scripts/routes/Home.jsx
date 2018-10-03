@@ -1,117 +1,178 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { connect } from 'react-redux';
-import cx from 'classnames';
+import React, { Fragment } from "react";
 
-import config from 'config';
-import Logo from 'components/Logo';
-import { login, push } from 'actions/index';
+import "../../styles/routes/_newhome.scss";
 
-export class Home extends React.PureComponent {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    user: PropTypes.object.isRequired,
-  };
-  handleClickNavigation = e => {
-    e.preventDefault();
-    this.props.dispatch(push('/free-trial'));
-  };
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ticker: false,
+      opacity: false
+    };
+    this.handleScroll = this.handleScroll.bind(this);
+  }
 
-  handleClickLogin = e => {
-    e.preventDefault();
-    this.props.dispatch(login());
-  };
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll() {
+    if (!this.state.ticker) {
+      if (window.scrollY > 50) {
+        this.setState({ ticker: true, opacity: true });
+        // console.log(this.state.ticker);
+      }
+    }
+  }
 
   render() {
-    const { user } = this.props;
-
+    // console.log(this.state.display);
     return (
-      <div key="Home" className="app__home app__route">
-        <div className="app__container">
-          <div className="app__home__wrapper">
-            <div className="app__home__header">
-              <Logo />
+      <Fragment>
+        <main>
+          <div className="main-wrapper">
+            <div className="intro">
+              <h1>Making music. Your home. Your time.</h1>
+              <p>
+                We are excited that you are looking into the journey of learning
+                music with us. We hire only the highest quality of teachers to
+                assist our students as they embark on the exciting opportunity
+                of starting or continuing with an instrument. Follow the links
+                below to find out more about the instruments we offer.
+              </p>
             </div>
-            <h1>{config.description}</h1>
-            {/* <a
-              href="#login"
-              onClick={this.handleClickLogin}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span>Start</span>
-            </a> */}
-            <a
-              // href="#free-trial"
-              onClick={() => this.props.dispatch(push('/free-trial'))}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span id="freeTrial">Free Trial</span>
-            </a>
-            <a
-              // href="#free-trial"
-              onClick={() => this.props.dispatch(push('/confirmation'))}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span id="freeTrial">Confirmation</span>
-            </a>
-            <a
-              // href="#free-trial"
-              onClick={() => this.props.dispatch(push('/match'))}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span id="freeTrial">Match</span>
-            </a>
-            <a
-              // href="#free-trial"
-              onClick={() => this.props.dispatch(push('/no-match'))}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span id="freeTrial">NoMatch</span>
-            </a>
-            <a
-              // href="#free-trial"
-              onClick={() => this.props.dispatch(push('/secondary-form'))}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span id="freeTrial">Secondary Form</span>
-            </a>
-            <a
-              onClick={() => this.props.dispatch(push('/new-home'))}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span id="freeTrial">New Home</span>
-            </a>
+            <div id="choose-adv" className="nav-down">
+              <h1
+                style={{
+                  opacity: `${this.state.opacity ? "1" : "0"}`,
+                  transition: "opacity .5s ease-in"
+                }}
+              >
+                Choose Your Instrument
+              </h1>
+            </div>
+            <div className="wrapper container-fluid">
+              <div className="row">
+                <div className="col-sm-5 offset-sm-1">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/1246437/pexels-photo-1246437.jpeg?cs=srgb&dl=4k-wallpaper-close-up-fingers-1246437.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/piano/"
+                      >
+                        Piano
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-5">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/15919/pexels-photo.jpg?cs=srgb&dl=e-guitar-electric-guitar-15919.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/guitar/"
+                      >
+                        Guitar
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-sm-5 offset-sm-1">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg?cs=srgb&dl=adult-band-concert-995301.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/drums/"
+                      >
+                        Drums
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-5">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/417456/pexels-photo-417456.jpeg?cs=srgb&dl=adult-band-bokeh-417456.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/woodwind/"
+                      >
+                        Woodwind
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-sm-5 offset-sm-1">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/462442/pexels-photo-462442.jpeg?cs=srgb&dl=adult-band-cap-462442.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/voice/"
+                      >
+                        Voice
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-5">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/1049690/pexels-photo-1049690.jpeg?cs=srgb&dl=brass-hand-instrument-1049690.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/piano/"
+                      >
+                        Brass
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-sm-5 offset-sm-1">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/111287/pexels-photo-111287.jpeg?cs=srgb&dl=concert-music-musical-instrument-111287.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/strings/"
+                      >
+                        Strings
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-5">
+                  <div className="cards">
+                    <img src="https://images.pexels.com/photos/1049690/pexels-photo-1049690.jpeg?cs=srgb&dl=brass-hand-instrument-1049690.jpg&fm=jpg" />
+                    <div className="image-caption-wrapper">
+                      <a
+                        className="image-caption"
+                        href="https://www.awsom.info/chamber/"
+                      >
+                        Chamber
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </main>
+        {/* ``` */}
+      </Fragment>
     );
   }
 }
-
-/* istanbul ignore next */
-function mapStateToProps(state) {
-  return { user: state.user };
-}
-
-export default connect(mapStateToProps)(Home);

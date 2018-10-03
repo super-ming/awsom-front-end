@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Header from '../components/Header';
 
 export default class Confirmation extends React.Component {
   // state = { matchTeacher: 'Mr. Shorofsky' };
@@ -7,7 +6,6 @@ export default class Confirmation extends React.Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <div className="app__container">
           <div className="app__confirmation">
             <h1>Success!</h1>

@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react';
-import Header from '../components/Header';
 
 export default class Match extends React.Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <div className="app__container">
           <div className="app__matchfound">
             <h1>We have a great match for you!</h1>
