@@ -21,10 +21,10 @@ export default class FreeTrial extends React.Component {
         thursday: false,
         friday: false,
         saturday: false,
-        sunday: false
+        sunday: false,
       },
       allergies: '',
-      specialNeeds: ''
+      specialNeeds: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -32,7 +32,7 @@ export default class FreeTrial extends React.Component {
   handleChange(event) {
     const { id, value } = event.target;
     this.setState({
-      [id]: value
+      [id]: value,
     });
   }
   render() {
