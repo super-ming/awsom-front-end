@@ -1,19 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
 export default class FreeTrial extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputvalue: "",
-      instrument: "",
-      style: "",
-      experience: "",
+      inputvalue: '',
+      instrument: '',
+      style: '',
+      experience: '',
       haveInstrument: false,
-      address1: "",
-      address2: "",
-      city: "",
-      state: "",
-      zip: "",
+      address1: '',
+      address2: '',
+      city: '',
+      state: '',
+      zip: '',
       days: {
         monday: false,
         tuesday: false,
@@ -23,8 +23,8 @@ export default class FreeTrial extends React.Component {
         saturday: false,
         sunday: false
       },
-      allergies: "",
-      specialNeeds: ""
+      allergies: '',
+      specialNeeds: ''
     };
     this.handleChange = this.handleChange.bind(this);
   }
