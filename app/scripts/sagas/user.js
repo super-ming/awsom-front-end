@@ -1,3 +1,5 @@
+import { request } from 'modules/client';
+
 /**
  * @module Sagas/User
  * @desc User
@@ -15,22 +17,26 @@ import { ActionTypes } from 'constants/index';
  * @param {Object} action
  *
  */
-export function* freeTrialInitialPost(payload) {
-  console.log('Stuff: ',payload)
-  // try {
-  //   const response = yield call(request, `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`);
-  //   yield put({
-  //     type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
-  //     payload: { data: response.items },
-  //   });
-  // }
-  // catch (err) {
-  //   /* istanbul ignore next */
-  //   yield put({
-  //     type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
-  //     payload: err,
-  //   });
-  // }
+export function* freeTrialInitialPost(data) {
+  const options = {
+    method: 'POST',
+    payload: data.payload,
+  };
+  console.log('inisde FreeTial: ',process.env)
+  try {
+    const response = yield call(request, `${process.env.REACT_APP_API_URL}/api/free-trial-request`, options);
+    yield put({
+      type: ActionTypes.FREE_TRIAL_POST_INITIAL_SUCCESS,
+      payload: { data: response },
+    });
+  }
+  catch (err) {
+    /* istanbul ignore next */
+    yield put({
+      type: ActionTypes.FREE_TRIAL_POST_INITIAL_FAILURE,
+      payload: err,
+    });
+  }
 }
 /**
  * Login
