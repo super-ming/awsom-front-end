@@ -1,40 +1,59 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
+import * as Yup from 'yup';
+import { Formik, Field, FieldArray, Form, ErrorMessage } from 'formik';
+import { DebugFormik } from '../components/DebugFormik';
+import SelectExperienceLevel from '../components/SelectExperienceLevel';
+import SelectHasInstrument from '../components/SelectHasInstrument';
+import SelectInstrument from '../components/SelectInstrument';
+import SelectMusicStyle from '../components/SelectMusicStyle';
+import { federatedStates } from '../constants/federatedStates';
+import { businessHours } from '../constants/businessHours';
+import { businessDays } from '../constants/businessDays';
+
+const initialFormValues = {
+  instrument: '',
+  musicStyle: '',
+  experienceLevel: '',
+  hasInstrument: '',
+  addressOne: '',
+  addressTwo: '',
+  city: '',
+  state: '',
+  zip: '',
+  availability: [
+    {
+      day: '',
+      fromTime: '',
+      toTime: '',
+    },
+  ],
+  allergies: '',
+  specialNeeds: '',
+};
+
+const initialFormSchema = Yup.object({
+  instrument: Yup.string().required('Required'),
+  musicStyle: Yup.string().required('Required'),
+  experienceLevel: Yup.string().required('Required'),
+  hasInstrument: Yup.string().required('Required'),
+  addressOne: Yup.string().required('Required'),
+  city: Yup.string().required('Required'),
+  state: Yup.string()
+    .oneOf(federatedStates, 'Must be a valid two-letter state abbreviation.')
+    .required('Required'),
+  zip: Yup.string()
+    .matches(/^[0-9]{5}(?:-[0-9]{4})?$/, 'Must be a five-number zip code.')
+    .required('Required'),
+  availability: Yup.array().of(
+    Yup.object({
+      day: Yup.string().required('Day required'),
+      fromTime: Yup.string().required('Start time required'),
+      toTime: Yup.string().required('End time required'),
+    })
+  ),
+});
 
 export default class FreeTrial extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputvalue: "",
-      instrument: "",
-      style: "",
-      experience: "",
-      haveInstrument: false,
-      address1: "",
-      address2: "",
-      city: "",
-      state: "",
-      zip: "",
-      days: {
-        monday: false,
-        tuesday: false,
-        wednesday: false,
-        thursday: false,
-        friday: false,
-        saturday: false,
-        sunday: false
-      },
-      allergies: "",
-      specialNeeds: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const { id, value } = event.target;
-    this.setState({
-      [id]: value
-    });
-  }
   render() {
     return (
       <Fragment>
@@ -50,181 +69,240 @@ export default class FreeTrial extends React.Component {
               nulla pariatur.
             </p>
           </div>
-          <div className="app__form">
-            <form>
-              <div className="app__form_item">
-                <div>What instrument are you interested in learning? *</div>
-                <select className="app__form_dropdownbox">
-                  <option value="piano">Piano</option>
-                  <option value="guitar">Guitar</option>
-                  <option value="didgeridoo">Didgeridoo</option>
-                  <option value="turntables">Turntables</option>
-                </select>
-              </div>
-              <div className="app__form_item">
-                <div>
-                  Which musical style are you most interested in learning? *
+          <Formik
+            initialValues={initialFormValues}
+            validationSchema={initialFormSchema}
+            onSubmit={values => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+              }, 500);
+            }}
+          >
+            {({ values, errors, touched, isSubmitting }) => (
+              <Form>
+                <div className="app__form">
+                  <div className="app__form_item">
+                    <SelectInstrument />
+                  </div>
+                  <div className="app__form_item">
+                    <SelectMusicStyle />
+                  </div>
+                  <div className="app__form_item">
+                    <SelectExperienceLevel />
+                  </div>
+                  <div className="app__form_item">
+                    <SelectHasInstrument />
+                  </div>
+                  <div className="app__form_item">
+                    <div>Address 1 *</div>
+                    <Field
+                      name="addressOne"
+                      className={
+                        errors.addressOne && touched.addressOne
+                          ? 'app__form_input field-error'
+                          : 'app__form_input'
+                      }
+                      type="text"
+                    />
+                    <ErrorMessage name="addressOne">
+                      {msg => <div className="field-error">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="app__form_item">
+                    <div>Address 2</div>
+                    <Field
+                      name="addressTwo"
+                      className="app__form_input"
+                      type="text"
+                    />
+                    <ErrorMessage name="addressTwo">
+                      {msg => <div className="field-error">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="app__form_item">
+                    <div>City *</div>
+                    <Field
+                      name="city"
+                      className={
+                        errors.city && touched.city
+                          ? 'app__form_input field-error'
+                          : 'app__form_input'
+                      }
+                      type="text"
+                    />
+                    <ErrorMessage name="city">
+                      {msg => <div className="field-error">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="app__form_item">
+                    <div>State *</div>
+                    <Field
+                      name="state"
+                      className={
+                        errors.zip && touched.zip
+                          ? 'app__form_input field-error'
+                          : 'app__form_input'
+                      }
+                      type="text"
+                    />
+                    <ErrorMessage name="state">
+                      {msg => <div className="field-error">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="app__form_item">
+                    <div>Zip *</div>
+                    <Field
+                      name="zip"
+                      className={
+                        errors.zip && touched.zip
+                          ? 'app__form_input field-error'
+                          : 'app__form_input'
+                      }
+                      type="text"
+                    />
+                    <ErrorMessage name="zip">
+                      {msg => <div className="field-error">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="app__form_item">
+                    <div>Availability *</div>
+
+                    <FieldArray name="availability">
+                      {({ push, remove }) => (
+                        <Fragment>
+                          {values.availability &&
+                            values.availability.length > 0 &&
+                            values.availability.map((item, index) => (
+                              <div key={index}>
+                                <Field
+                                  component="select"
+                                  name={`availability[${index}].day`}
+                                  className="app__form_dropdownbox"
+                                >
+                                  <option value="">Select</option>
+                                  {businessDays.map(element => (
+                                    <option
+                                      key={element.id}
+                                      value={element.day}
+                                    >
+                                      {element.day.replace(/^\w/, c =>
+                                        c.toUpperCase()
+                                      )}
+                                    </option>
+                                  ))}
+                                </Field>
+                                <span />
+                                <Field
+                                  component="select"
+                                  name={`availability[${index}].fromTime`}
+                                >
+                                  <option value="">From</option>
+                                  {businessHours.map(element => (
+                                    <option
+                                      key={element.id}
+                                      value={element.time}
+                                    >
+                                      {element.label}
+                                    </option>
+                                  ))}
+                                </Field>
+                                <span />
+                                <Field
+                                  component="select"
+                                  name={`availability[${index}].toTime`}
+                                >
+                                  <option value="">To</option>
+                                  {businessHours.map(element => (
+                                    <option
+                                      key={element.id}
+                                      value={element.time}
+                                    >
+                                      {element.label}
+                                    </option>
+                                  ))}
+                                </Field>
+
+                                <button
+                                  type="button"
+                                  className="btn"
+                                  onClick={() => remove(index)}
+                                >
+                                  <i className="far fa-times-circle" />
+                                </button>
+                                <ErrorMessage
+                                  name={`availability[${index}].day`}
+                                >
+                                  {msg => (
+                                    <div className="field-error">{msg}</div>
+                                  )}
+                                </ErrorMessage>
+                                <ErrorMessage
+                                  name={`availability[${index}].fromTime`}
+                                >
+                                  {msg => (
+                                    <div className="field-error">{msg}</div>
+                                  )}
+                                </ErrorMessage>
+                                <ErrorMessage
+                                  name={`availability[${index}].toTime`}
+                                >
+                                  {msg => (
+                                    <div className="field-error">{msg}</div>
+                                  )}
+                                </ErrorMessage>
+                              </div>
+                            ))}
+                          <div className="app__form_container">
+                            <button
+                              type="button"
+                              onClick={() =>
+                                push({ day: '', fromTime: '', toTime: '' })
+                              }
+                              className="btn btn-secondary"
+                            >
+                              Add Time
+                            </button>
+                          </div>
+                        </Fragment>
+                      )}
+                    </FieldArray>
+                  </div>
+                  <div className="app__form_item">
+                    <div>Allergies:</div>
+                    <Field
+                      name="allergies"
+                      className="app__form_input"
+                      type="text"
+                    />
+                    <ErrorMessage name="allergies">
+                      {msg => <div className="field-error">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="app__form_item">
+                    <div>Special Needs:</div>
+                    <Field
+                      name="specialNeeds"
+                      className="app__form_input"
+                      type="text"
+                    />
+                    <ErrorMessage name="specialNeeds">
+                      {msg => <div className="field-error">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="app__form_container">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn btn-primary "
+                    >
+                      SUBMIT
+                    </button>
+                  </div>
                 </div>
-                <select className="app__form_dropdownbox">
-                  <option value="classical">Classical</option>
-                  <option value="jazz">Jazz</option>
-                  <option value="rock">Rock</option>
-                  <option value="opera">Opera</option>
-                </select>
-              </div>
-              <div className="app__form_item">
-                <div>Previous musical experience: *</div>
-                <select className="app__form_dropdownbox">
-                  <option value="beginner">Beginner: 0-2 years</option>
-                  <option value="intermediate">Intermediate: 3-4 years</option>
-                  <option value="advanced">Advanced: 5+ years</option>
-                </select>
-              </div>
-              <div className="app__form_item">
-                <div>Do you have an instrument already? *</div>
-                <select className="app__form_dropdownbox">
-                  <option value="no">No</option>
-                  <option value="yes">Yes</option>
-                </select>
-              </div>
-              <div className="app__form_item">
-                <div>Address: *</div>
-                <input
-                  type="text"
-                  id="address1"
-                  className="app__form_input"
-                  value={this.state.address1}
-                  onChange={this.handleChange}
-                />
-                <div className="app__form_addresssub">Address 1</div>
-                <input
-                  type="text"
-                  id="address2"
-                  className="app__form_input"
-                  value={this.state.address2}
-                  onChange={this.handleChange}
-                />
-                <div className="app__form_addresssub">Address 2</div>
-                <input
-                  type="text"
-                  id="city"
-                  className="app__form_input"
-                  value={this.state.city}
-                  onChange={this.handleChange}
-                />
-                <div className="app__form_addresssub">City</div>
-                <input
-                  type="text"
-                  id="state"
-                  className="app__form_input"
-                  value={this.state.state}
-                  onChange={this.handleChange}
-                />
-                <div className="app__form_addresssub">State</div>
-                <input
-                  type="text"
-                  id="zip"
-                  className="app__form_input"
-                  value={this.state.zip}
-                  onChange={this.handleChange}
-                />
-                <div className="app__form_addresssub">Zip</div>
-              </div>
-              <div className="app__form_item">
-                <div>What are the best days and times for lessons? *</div>
-                <ul className="list-unstyled">
-                  <li>
-                    <button
-                      type="button"
-                      id="monday"
-                      className="btn btn-outline-secondary"
-                    >
-                      Monday
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      id="tuesday"
-                      className="btn btn-outline-secondary"
-                    >
-                      Tuesday
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      id="wednesday"
-                      className="btn btn-outline-secondary"
-                    >
-                      Wednesday
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      id="thursday"
-                      className="btn btn-outline-secondary"
-                    >
-                      Thursday
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      id="friday"
-                      className="btn btn-outline-secondary"
-                    >
-                      Friday
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      id="saturday"
-                      className="btn btn-outline-secondary"
-                    >
-                      Saturday
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      id="sunday"
-                      className="btn btn-outline-secondary"
-                    >
-                      Sunday
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <div className="app__form_item">
-                <div>Allergies:</div>
-                <input
-                  className="app__form_input"
-                  id="allergies"
-                  type="text"
-                  value={this.state.allergies}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="app__form_item">
-                <div>Special Needs:</div>
-                <input
-                  className="app__form_input"
-                  id="needs"
-                  type="text"
-                  value={this.state.needs}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="app__form_container">
-                <button type="submit" className="btn btn-primary">
-                  SUBMIT
-                </button>
-              </div>
-            </form>
-          </div>
+                <DebugFormik />
+              </Form>
+            )}
+          </Formik>
         </div>
       </Fragment>
     );

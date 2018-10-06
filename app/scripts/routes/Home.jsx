@@ -1,23 +1,23 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
-import "../../styles/routes/_newhome.scss";
+import '../../styles/routes/_newhome.scss';
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       ticker: false,
-      opacity: false
+      opacity: false,
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {
@@ -48,8 +48,8 @@ export default class Home extends React.Component {
             <div id="choose-adv" className="nav-down">
               <h1
                 style={{
-                  opacity: `${this.state.opacity ? "1" : "0"}`,
-                  transition: "opacity .5s ease-in"
+                  opacity: `${this.state.opacity ? '1' : '0'}`,
+                  transition: 'opacity .5s ease-in',
                 }}
               >
                 Choose Your Instrument

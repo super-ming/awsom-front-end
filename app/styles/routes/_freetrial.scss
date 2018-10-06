@@ -46,7 +46,14 @@
     background-color: black;
     border-color: white;
     width: 150px;
-    // border-radius: 10px;
-    // color: black;
   }
+}
+
+.field-error {
+  color: red;
+  border-color: red;
+}
+
+span {
+  margin: 0 5px;
 }
