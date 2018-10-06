@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { freeTrialInitialPost } from 'actions'
+import { connect } from 'react-redux'
 import * as Yup from 'yup';
 import { Formik, Field, FieldArray, Form, ErrorMessage } from 'formik';
 import { DebugFormik } from '../components/DebugFormik';
@@ -53,8 +55,9 @@ const initialFormSchema = Yup.object({
   ),
 });
 
-export default class FreeTrial extends React.Component {
+class FreeTrial extends React.Component {
   render() {
+    console.log('props: ', this.props)
     return (
       <Fragment>
         <div className="app__container">
@@ -73,9 +76,7 @@ export default class FreeTrial extends React.Component {
             initialValues={initialFormValues}
             validationSchema={initialFormSchema}
             onSubmit={values => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-              }, 500);
+              this.props.dispatch(freeTrialInitialPost(values))
             }}
           >
             {({ values, errors, touched, isSubmitting }) => (
@@ -308,3 +309,5 @@ export default class FreeTrial extends React.Component {
     );
   }
 }
+
+export default connect()(FreeTrial)

@@ -21,6 +21,9 @@ export const ActionTypes = keyMirror({
   GITHUB_GET_REPOS_FAILURE: undefined,
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
+  FREE_TRIAL_POST_INITIAL: undefined,
+  FREE_TRIAL_POST_INITIAL_SUCCESS: undefined,
+  FREE_TRIAL_POST_INITIAL_FAILURE: undefined,
 });
 
 /**

@@ -67,6 +67,7 @@ export function request(url: string, options: Object = {}): Promise<*> {
   if (params.method !== 'GET') {
     params.body = JSON.stringify(config.payload);
   }
+  console.log('before send: ', params)
 
   return fetch(url, params)
     .then(async (response) => {
