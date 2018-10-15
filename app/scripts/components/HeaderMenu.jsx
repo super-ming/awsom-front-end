@@ -7,7 +7,7 @@ class HeaderMenu extends React.Component {
     super(props);
 
     this.state = {
-      visible: false
+      showMenu: false
     }
 
     this.showMenu = this.showMenu.bind(this);
@@ -15,44 +15,28 @@ class HeaderMenu extends React.Component {
 
   };
 
-  onVisibleChange = (visible) => {
-    this.setState({
-      visible: true
-    });
-  }
-
-  saveSelected = ({selectedKeys}) => {
-    this.selected = selectedKeys;
-  }
-
   showMenu() {
     this.setState(
-      { showMenu: !this.state.showMenu }, () => {
-       console.log(this.state.showMenu);
-    });
-
+      { showMenu: !this.state.showMenu }
+    );
   }
 
   closeMenu(event) {
-    this.setState({ showMenu: false }, () => {
-    console.log(this.state.showMenu);
-    });
+    this.setState({ showMenu: false }
+    );
   }
 
   render() {
-    const { showMenu } = this.state;
     const dropdown = this.props.subMenu;
     return (
           <li>
             <div className="folder" key={ this.props.id }>
             { dropdown ? (
-                <div className="toggle" key={ this.props.id } active={this.state.showMenu} onSelect={this.saveSelected}
-                onDeselect={this.saveSelected} visible={this.state.visible}
-                onVisibleChange={this.onVisibleChange}>{ this.props.title }
-                <div className={`subnav ${ this.visible ? 'open' : '' }`} key={ dropdown.id }>
+                <div className="toggle" key={ this.props.id } onClick={ this.showMenu }
+                >{ this.props.title }
+                <div className={`subnav ${ this.state.showMenu ? 'open' : '' }`} key={ dropdown.id }>
                   { dropdown.map((dropdown) =>
                         <a href={ dropdown.url }>{ dropdown.title }</a>
-
                     )
                   }
                 </div>
@@ -64,9 +48,8 @@ class HeaderMenu extends React.Component {
             }
             </div>
           </li>
-    )
-  }
+          )
+          }
 }
-
 
 export default HeaderMenu
