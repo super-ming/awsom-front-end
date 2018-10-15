@@ -36,7 +36,7 @@ class HeaderMenu extends React.Component {
                 >{ this.props.title }
                 <div className={`subnav ${ this.state.showMenu ? 'open' : '' }`} key={ dropdown.id }>
                   { dropdown.map((dropdown) =>
-                        <a href={ dropdown.url }>{ dropdown.title }</a>
+                        <a key={ dropdown.id} href={ dropdown.url }>{ dropdown.title }</a>
                     )
                   }
                 </div>
