@@ -1,6 +1,15 @@
 import React, { Fragment } from 'react';
 
 import '../../styles/routes/_newhome.scss';
+import piano from '../../../assets/media/images/piano.jpg';
+import guitar from '../../../assets/media/images/guitar.jpg';
+import drums from '../../../assets/media/images/drums.jpg';
+import brass from '../../../assets/media/images/brass.jpg';
+import strings from '../../../assets/media/images/strings.jpg';
+import woodwind from '../../../assets/media/images/woodwind.jpg';
+import voice from '../../../assets/media/images/voice.jpg';
+import chamber from '../../../assets/media/images/chamber.jpg';
+
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -56,9 +65,9 @@ export default class Home extends React.Component {
             </div>
             <div className="wrapper container-fluid">
               <div className="row">
-                <div className="col-sm-5 offset-sm-1">
+                <div className="col-sm-4 offset-sm-2 card-container">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/1246437/pexels-photo-1246437.jpeg?cs=srgb&dl=4k-wallpaper-close-up-fingers-1246437.jpg&fm=jpg" />
+                    <img src={piano} />
                     <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
@@ -69,9 +78,9 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-sm-5">
+                <div className="col-sm-4 card_container">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/15919/pexels-photo.jpg?cs=srgb&dl=e-guitar-electric-guitar-15919.jpg&fm=jpg" />
+                    <img src={ guitar } />
                     <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
@@ -84,9 +93,9 @@ export default class Home extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-sm-5 offset-sm-1">
+                <div className="col-sm-4 offset-sm-2">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg?cs=srgb&dl=adult-band-concert-995301.jpg&fm=jpg" />
+                    <img src={ drums } />
                     <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
@@ -97,9 +106,9 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-sm-5">
+                <div className="col-sm-4">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/417456/pexels-photo-417456.jpeg?cs=srgb&dl=adult-band-bokeh-417456.jpg&fm=jpg" />
+                    <img src={ woodwind } />
                     <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
@@ -112,9 +121,9 @@ export default class Home extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-sm-5 offset-sm-1">
+                <div className="col-sm-4 offset-sm-2">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/462442/pexels-photo-462442.jpeg?cs=srgb&dl=adult-band-cap-462442.jpg&fm=jpg" />
+                    <img src={ voice } />
                     <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
@@ -125,13 +134,13 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-sm-5">
+                <div className="col-sm-4">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/1049690/pexels-photo-1049690.jpeg?cs=srgb&dl=brass-hand-instrument-1049690.jpg&fm=jpg" />
+                    <img src={ brass } />
                     <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
-                        href="https://www.awsom.info/piano/"
+                        href="https://www.awsom.info/brass/"
                       >
                         Brass
                       </a>
@@ -140,9 +149,9 @@ export default class Home extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-sm-5 offset-sm-1">
+                <div className="col-sm-4 offset-sm-2">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/111287/pexels-photo-111287.jpeg?cs=srgb&dl=concert-music-musical-instrument-111287.jpg&fm=jpg" />
+                    <img src={ strings } />
                     <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
@@ -153,17 +162,15 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-sm-5">
+                <div className="col-sm-4">
                   <div className="cards">
-                    <img src="https://images.pexels.com/photos/1049690/pexels-photo-1049690.jpeg?cs=srgb&dl=brass-hand-instrument-1049690.jpg&fm=jpg" />
-                    <div className="image-caption-wrapper">
+                    <img src={ chamber } />
                       <a
                         className="image-caption"
                         href="https://www.awsom.info/chamber/"
                       >
                         Chamber
                       </a>
-                    </div>
                   </div>
                 </div>
               </div>
