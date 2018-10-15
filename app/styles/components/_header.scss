@@ -69,6 +69,7 @@
     background: transparent;
     max-width: 930px;
     display: inline-block;
+    padding-right: 15px;
 
     ul {
       display: flex;
@@ -156,9 +157,14 @@
       text-decoration: none;
   }
 
+  &_freebutton {
+    margin-top: 3px;
+  }
+
   &_freebutton > button {
     color: white;
     opacity: 1;
+    padding-left: 22px;
   }
 
   &_freebutton > button:hover {

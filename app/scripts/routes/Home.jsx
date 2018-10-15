@@ -165,12 +165,14 @@ export default class Home extends React.Component {
                 <div className="col-sm-4">
                   <div className="cards">
                     <img src={ chamber } />
+                    <div className="image-caption-wrapper">
                       <a
                         className="image-caption"
                         href="https://www.awsom.info/chamber/"
                       >
                         Chamber
                       </a>
+                    </div>
                   </div>
                 </div>
               </div>

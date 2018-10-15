@@ -64,6 +64,7 @@ img {
   color: #93979e;
   text-decoration: underline;
   margin-left: 5px;
+  letter-spacing: 1.5px;
 }
 
 .wrapper {
@@ -79,7 +80,6 @@ img {
 #choose-adv {
   margin-left: 1%;
 }
-
 
 @media only screen and (max-width: 500px) {
   .app__logo > .app_container{
@@ -268,7 +268,7 @@ img {
 
 @media only screen and (min-width: 1017px) and (max-width: 1430px) {
   .app__header__menu {
-    padding: 1.75% 1.75% 0 0;
+    padding: 1.75% 0 0 0;
   }
 
   .app__logo > .app_container{
@@ -291,7 +291,7 @@ img {
 
 @media only screen and (min-width: 1431px) {
   .app__header__menu {
-    padding: 1.75% 1.75% 0 0;
+    padding: 1.75% 1.25% 0 0;
   }
 
   .app__container {
